@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+// Функция для поиска экстремального элемента массива
+void findExtremum(int arr[], int size, bool isMax) {
+  int extremum = arr[0];
+  
+  // Итерируемся по массиву и ищем экстремальный элемент
+  for (int i = 1; i < size; i++) {
+    if ((isMax && arr[i] > extremum) || (!isMax && arr[i] < extremum)) {
+      extremum = arr[i];
+    }
+  }
+  
+  // Выводим найденный элемент
+  if (isMax) {
+    cout << "Наибольший элемент: " << extremum << endl;
+  } else {
+    cout << "Наименьший элемент: " << extremum << endl;
+  }
+}
+
+int main() {
+  // Задаем размер массива
+  const int SIZE = 10;
+  
+  // Создаем массив и заполняем его случайными числами
+  int arr[SIZE];
+  srand(time(0));
+  for (int i = 0; i < SIZE; i++) {
+    arr[i] = rand() % 100;
+  }
+  
+  // Выводим исходный массив на экран
+  cout << "Массив: ";
+  for (int i = 0; i < SIZE; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << endl;
+  
+  // Ищем наибольший и наименьший элементы
+  findExtremum(arr, SIZE, true);
+  findExtremum(arr, SIZE, false);
+  
+  return 0;
+}
