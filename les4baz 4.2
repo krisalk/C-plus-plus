@@ -1,0 +1,28 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main() {
+  const int ROWS = 4;
+  const int COLS = 4;
+
+  int arr[ROWS][COLS];
+
+  // заполняем массив случайным образом из 0 и 1
+  srand(time(nullptr)); // инициализируем генератор случайных чисел
+  for (int i = 0; i < ROWS; i++) {
+    for (int j = 0; j < COLS; j++) {
+      arr[i][j] = rand() % 2;
+    }
+  }
+
+  // выводим массив в требуемом формате
+  for (int i = 0; i < ROWS; i++) {
+    for (int j = 0; j < COLS; j++) {
+      cout << arr[i][j] << " ";
+    }
+    cout << endl; // переходим на новую строку
+  }
+
+  return 0;
+}

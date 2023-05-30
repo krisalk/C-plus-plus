@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cmath>
+
+double evaluateFunction(double x, double* coefficients, int degree) {
+    double sum = 0.0;
+    
+    for (int k = 0; k <= degree; k++) {
+        sum += coefficients[k] * pow(x, k);
+    }
+    
+    return sum;
+}
+
+double evaluateDerivative(double x, double* coefficients, int degree) {
+    double sum = 0.0;
+    
+    for (int k = 1; k <= degree; k++) {
+        sum += k * coefficients[k] * pow(x, k - 1);
+    }
+    
+    return sum;
+}
+
+double solveEquationNewton(double* coefficients, int degree, double initialGuess, double tolerance) {
+    double x0 = initialGuess;
+    double x1 = x0;
+    
+    do {
+        x0 = x1;
+        x1 = x0 - evaluateFunction(x0, coefficients, degree) / evaluateDerivative(x0, coefficients, degree);
+    } while (std::abs(x1 - x0) > tolerance);
+    
+    return x1;
+}
+
+int main() {
+    int degree;
+    std::cout << "Введите степень уравнения: ";
+    std::cin >> degree;
+    
+    double coefficients[degree + 1];
+    std::cout << "Введите коэффициенты уравнения:" << std::endl;
+    for (int k = 0; k <= degree; k++) {
+        std::cout << "a[" << k << "]: ";
+        std::cin >> coefficients[k];
+    }
+    
+    double initialGuess;
+    std::cout << "Введите начальное приближение: ";
+    std::cin >> initialGuess;
+    
+    double tolerance;
+    std::cout << "Введите требуемую точность: ";
+    std::cin >> tolerance;
+    
+    double solution = solveEquationNewton(coefficients, degree, initialGuess, tolerance);
+    
+    std::cout << "Решение уравнения f(x) = 0: x = " << solution << std::endl;
+    
+    return 0;
+}

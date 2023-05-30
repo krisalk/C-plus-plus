@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+double calculateCentralMoment(const vector<double>& values, const vector<double>& probabilities, double mean, int order) {
+    double centralMoment = 0.0;
+    int n = values.size();
+
+    for (int i = 0; i < n; i++) {
+        centralMoment += pow((values[i] - mean), order) * probabilities[i];
+    }
+
+    return centralMoment;
+}
+
+int main() {
+    // Ввод порядка момента
+    int order;
+    cout << "Введите порядок момента: ";
+    cin >> order;
+
+    // Ввод значений случайной величины и соответствующих вероятностей
+    int n;
+    cout << "Введите количество значений случайной величины: ";
+    cin >> n;
+
+    vector<double> values(n);
+    vector<double> probabilities(n);
+
+    cout << "Введите значения случайной величины и соответствующие вероятности:" << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> values[i] >> probabilities[i];
+    }
+
+    // Вычисление математического ожидания
+    double mean = 0.0;
+    for (int i = 0; i < n; i++) {
+        mean += values[i] * probabilities[i];
+    }
+
+    // Вычисление центрального момента
+    double centralMoment = calculateCentralMoment(values, probabilities, mean, order);
+
+    // Вывод результата
+    cout << "Центральный момент порядка " << order << ": " << centralMoment << endl;
+
+    return 0;
+}

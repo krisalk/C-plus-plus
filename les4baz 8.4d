@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int num = 20; // начальное число
+
+    for (int i = 5; i >= 1; i--) { // внешний цикл от 5 до 1
+
+        for (int j = num; j <= num+i-1; j++) { // внутренний цикл от num до num+i-1
+
+            cout << j << " "; // выводим число j и пробел
+
+        }
+
+        num--; // уменьшаем начальное число на 1
+
+        cout << endl; // переходим на новую строку
+
+    }
+
+    return 0;
+
+}

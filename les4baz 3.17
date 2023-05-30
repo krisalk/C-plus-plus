@@ -1,0 +1,24 @@
+#include <iostream>
+
+int main() {
+    const int n = 10; // размер массива
+    int arr[n][n]; // объявление массива
+
+    // заполнение массива случайными числами от 1 до 10
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            arr[i][j] = rand() % 10 + 1;
+        }
+    }
+
+    // вычисление суммы элементов каждой строки
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = 0; j < n; j++) {
+            sum += arr[i][j];
+        }
+        std::cout << "Сумма элементов " << i+1 << "-й строки: " << sum << std::endl;
+    }
+
+    return 0;
+}

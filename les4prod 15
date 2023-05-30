@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n; // степень полинома
+    cout << "Введите степень полинома: ";
+    cin >> n;
+
+    int coef[n+1]; // массив коэффициентов полинома
+    for (int i = 0; i <= n; i++) {
+        cout << "Введите коэффициент при x^" << i << ": ";
+        cin >> coef[i];
+    }
+
+    char choice; // переменная для выбора продолжения работы
+    do {
+        int x; // аргумент
+        cout << "Введите значение аргумента: ";
+        cin >> x;
+
+        int derivative = 0; // значение производной полинома
+        for (int i = 1; i <= n; i++) {
+            derivative += i * coef[i] * pow(x, i-1); // вычисление слагаемых производной
+        }
+
+        cout << "Значение производной полинома в точке " << x << ": " << derivative << endl;
+
+        cout << "Продолжить работу? (y/n): ";
+        cin >> choice;
+    } while (choice == 'y' || choice == 'Y');
+
+    return 0;
+}

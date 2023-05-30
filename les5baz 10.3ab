@@ -1,0 +1,44 @@
+1) не используя функцию max; 
+
+#include <iostream>
+ 
+using namespace std;
+int main()
+{
+    double a, b, z;
+    cin >> a >> b;
+    if (a > (2 * b)){
+        z = a;
+    }
+    else {
+        z = (b * 2);
+    }
+    if ((2 * a - b) > b){
+        z *= (2 * a - b);
+    }
+    else {
+        z *= b;
+    }
+    cout << z << endl;
+    system("pause");
+    return 0;
+}
+
+2) определив и использовав функцию max.
+
+#include <iostream>
+using namespace std;
+double max(double x, double y){
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+int main()
+{
+    double a, b;
+    cin >> a >> b;
+    cout << (max(a, (2 * b)) * max((2 * a - b), b)) << endl;
+    system("pause");
+    return 0;
+}

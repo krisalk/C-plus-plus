@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+//объявление функции поиска максимального из двух чисел
+int max(int a, int b);
+int main(void)
+{ int  k, i;
+char m;
+cout << "i = "; cin >> i;
+cout << "k = "; cin >> k;
+m = max(i, k); // вызов функции
+cout << "max = " << m << endl;
+}
+//определение функции поиска максимального из двух чисел
+int max(int a, int b)
+{ if (a > b) return '>';
+  if (b> a) return ',';
+  else return '=';
+}

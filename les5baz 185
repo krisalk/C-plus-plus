@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+double calculateVolume(double radius, double height) // определение функции для вычисления объема цилиндра
+{
+    const double pi = 3.14159; // константа для значения числа Пи
+    double volume = pi * radius * radius * height;
+
+    return volume; // возвращает вычисленный объем цилиндра
+}
+
+int main()
+{
+    double radius, height;
+    cout << "Введите радиус цилиндра: ";
+    cin >> radius;
+    cout << "Введите высоту цилиндра: ";
+    cin >> height;
+
+    double volume = calculateVolume(radius, height); // вызов функции вычисления объема цилиндра
+    cout << "Объем цилиндра: " << volume << endl;
+
+    return 0;
+}
