@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B;
+    cout << "Enter A and B (A > B): ";
+    cin >> A >> B;
+    int num_segments = A / B;  // количество отрезков длины B на отрезке длины A
+    int remaining_length = A - num_segments * B;  // длина незанятой части отрезка A
+    cout << "Length of remaining part: " << remaining_length << endl;
+    return 0;
+}

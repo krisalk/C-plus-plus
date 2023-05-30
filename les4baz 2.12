@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    double arr[12];
+    cout << "Введите 12 элементов массива:\n";
+    for (int i = 0; i < 12; i++) {
+        cin >> arr[i];
+    }
+
+    sort(arr, arr + 12, greater<double>());
+
+    cout << "Массив в порядке убывания:\n";
+    for (int i = 0; i < 12; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+
+    double sum = arr[0] + arr[11];
+    cout << "Сумма максимального и минимального элементов: " << sum << "\n";
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+
+#include <cmath>
+
+using namespace std;
+
+
+
+const int N = 10; // граница ряда
+
+
+
+int main() {
+
+    double x;
+
+    cout << "Введите значение x (|x| < 1): ";
+
+    cin >> x;
+
+    double sum = 0;
+
+    for (int n = 0; n <= N; n++) {
+
+        sum += (n + 1) * pow(x, n);
+
+    }
+
+    cout << "Сумма ряда: " << sum << endl;
+
+    double denominator = pow(1 - x, 2);
+
+    cout << "Знаменатель: " << denominator << endl;
+
+    return 0;
+
+}
+

@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+const int arrSize = 5; // Размер массива
+
+int main() 
+{
+    double arr[arrSize]; // Объявление массива
+    double sum = 0; // Переменная для хранения суммы элементов массива
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        sum += arr[i]; // Добавляем текущий элемент к общей сумме
+    }
+
+    double mean = sum / arrSize; // Вычисляем среднее значение
+
+    // Вывод результатов на экран
+    cout << "Сумма элементов массива: " << sum << endl;
+    cout << "Среднее значение: " << mean << endl;
+
+    return 0;
+}

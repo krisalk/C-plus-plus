@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+#include <random>
+
+using namespace std;
+
+double f(double x, double y) // функция, определяющая тело
+{
+    if (y <= x * x && y <= 1 && x * x + y * y >= 0) // условие на поверхности тела
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    const double exactValue = 88.0 / 105.0; // точное значение объема
+    const int N = 1000000; // количество испытаний
+    double V = 0; // оценка объема
+
+    random_device rd; // генератор случайных чисел
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(-1, 1); // равномерное распределение на [-1, 1]
+
+    for (int i = 0; i < N; i++)
+    {
+        double x = dis(gen);
+        double y = dis(gen);
+        V += f(x, y);
+    }
+
+    V *= 4.0 / N; // множитель для перехода от квадрата [-1, 1]x[-1, 1] к кругу с радиусом 1
+    cout << "Оценка объема: " << V << endl;
+    cout << "Точное значение: " << exactValue << endl;
+
+    return 0;
+}

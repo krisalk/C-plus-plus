@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int countOccurrences(int arr[][m], int n, int m) {
+    int count = 0;
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (arr[i][j] == 7) {
+                count++;
+            }
+        }
+    }
+    
+    return count;
+}
+
+int main() {
+    int n, m;
+    cout << "Введите количество строк: ";
+    cin >> n;
+    cout << "Введите количество столбцов: ";
+    cin >> m;
+    
+    int arr[n][m];
+    
+    cout << "Введите элементы массива:" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    
+    int occurrences = countOccurrences(arr, n, m);
+    
+    cout << "Число 7 встречается " << occurrences << " раз(а)" << endl;
+    
+    return 0;
+}
+

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int K = 1;
+    float sum = 0;
+
+    while (sum < 4) {
+        sum += 1.0 / K;
+        K++;
+    }
+
+    cout << "Largest integer K: " << K - 1 << endl;
+    cout << "Sum: " << sum << endl;
+
+    return 0;
+}

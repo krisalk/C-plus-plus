@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[7][8] = {{1, 2, 3, 4, 5, 6, 7, 8},
+                     {9, 10, 11, 12, 13, 14, 15, 16},
+                     {17, 18, 19, 20, 21, 22, 23, 24},
+                     {25, 26, 27, 28, 29, 30, 31, 32},
+                     {33, 34, 35, 36, 37, 38, 39, 40},
+                     {41, 42, 43, 44, 45, 46, 47, 48},
+                     {49, 50, 51, 52, 53, 54, 55, 56}};
+
+    int oddCount[8] = {0}; // массив для хранения количества нечетных элементов в каждом столбце
+
+    for (int j = 0; j < 8; j++) { // перебираем столбцы
+        for (int i = 0; i < 7; i++) { // перебираем строки
+            if (arr[i][j] % 2 != 0) { // если элемент нечетный
+                oddCount[j]++; // увеличиваем счетчик нечетных элементов в текущем столбце
+            }
+        }
+    }
+
+    // выводим результаты
+    for (int j = 0; j < 8; j++) {
+        cout << "В столбце " << j+1 << " количество нечетных элементов: " << oddCount[j] << endl;
+    }
+
+    return 0;
+}
+
+//самостоятельная прод 4, №17:
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double f(double x, double* a, int n) {
+    double result = 0;
+    for (int i = 0; i < n; i++) {
+        result += a[i] * pow(x, i+1);
+    }
+    return result;
+}
+
+double df(double x, double* a, int n) {
+    double result = 0;
+    for (int i = 0; i < n-1; i++) {
+        result += (i+1) * a[i] * pow(x, i);
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    cout << "Введите степень полинома: ";
+    cin >> n;
+    double a[n];
+    cout << "Введите коэффициенты полинома: ";
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    double x0;
+    cout << "Введите начальную точку: ";
+    cin >> x0;
+    double eps;
+    cout << "Введите точность: ";
+    cin >> eps;
+    double x = x0;
+    double delta;
+    do {
+        delta = f(x, a, n) / df(x, a, n);
+        x -= delta;
+    } while (abs(delta) > eps);
+    cout << "Корень уравнения: " << x << endl;
+    return 0;
+}

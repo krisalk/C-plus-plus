@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> calculateDifference(const vector<int>& arr) {
+    vector<int> result;
+    int sum = 0;
+    int size = arr.size();
+
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+
+    int average = sum / size;
+
+    for (int i = 0; i < size; i++) {
+        result.push_back(arr[i] - average);
+    }
+
+    return result;
+}
+
+int main() {
+    vector<int> arr = {5, 8, 3, 2, 9, 4, 7, 1, 6, 10, 2, 5, 3, 8, 7};
+    vector<int> diffArray = calculateDifference(arr);
+
+    cout << "Difference array: ";
+    for (int i = 0; i < diffArray.size(); i++) {
+        cout << diffArray[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	cout << "Enter a positive integer: ";
+	cin >> n;
+	
+	int k = 0;
+	while (k * k <= n) {
+		k++;
+	}
+	k--;
+	
+	cout << "The largest integer K such that K^2 <= N is: " << k << endl;
+
+	return 0;
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int SIZE = 15;
+    double M[SIZE] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0};
+
+    cout << "Original array: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << M[i] << " ";
+    }
+
+    // Reverse the array
+    for (int i = 0; i < SIZE / 2; i++) {
+        double temp = M[i];
+        M[i] = M[SIZE - 1 - i];
+        M[SIZE - 1 - i] = temp;
+    }
+
+    cout << endl << "Reversed array: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << M[i] << " ";
+    }
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int upperLimit;
+    cout << "Enter the upper limit: ";
+    cin >> upperLimit;
+
+    double product = 1.0;
+    for (int n = 1; n <= upperLimit; n++) {
+        product *= pow(cos(2 * n + 1), 2);
+    }
+
+    cout << "Product: " << product << endl;
+
+    return 0;
+}
